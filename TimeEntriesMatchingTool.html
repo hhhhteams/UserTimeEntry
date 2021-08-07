@@ -1,0 +1,30 @@
+﻿<script src="https://hhhhteams.sharepoint.com/sites/HHHHTeams/Style%20Library/js/angular/Templates/HCTemplateControllers.js?updated=23-03-2019"></script>
+<script src="https://hhhhteams.sharepoint.com/sites/HHHHTeams/Style%20Library/js/angular/Online/UserTimeEntry/TimeEntriesMatchingTool.js?updated=24-09-2020"></script>
+<script src="https://hhhhteams.sharepoint.com/sites/HHHHTeams/Style%20Library/js/angular/Services/alasql.min.js"></script>
+<style>
+    #pageTitle a {
+        display: none !important;
+    }
+
+    #contentRow {
+        padding-top: 0px !important;
+        margin-top: -15px;
+    }
+</style>
+<div ng-controller="TimeEntriesMatchingController" ng-cloak class="report">
+
+    <div class="mt-10 mb-10">
+        <h1>Update Timesheet Based on Batches</h1>
+    </div>
+    <div id="showSearchBox" class="col-sm-12 padL-0 PadR0 mb-10">
+        <div class="col-sm-8"><input type="file" id="excelfile" /></div>
+        <button class="btn btn-primary" type="button" ng-click="ImportMasterTask()">Import</button>
+    </div>
+    <div class="col-sm-12 padL-0 PadR0 mb-10">
+        <div class="col-sm-12 padL-0 PadR0">
+            <span class="MR5" ng-repeat="batch in AllBatches">
+                <button class="btn btn-primary mb-10" type="button" ng-disabled="batch.IsDisabled" ng-click="createItemBasedOnBatches(batch.Batch,batch.IsDisabled)">Batch{{$index+1}} ({{batch.Batch.length}})</button>
+            </span>
+        </div>
+    </div>
+</div>
